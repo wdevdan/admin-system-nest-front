@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Edge",
+      "request": "launch",
+      "type": "msedge",
+      "runtimeArgs": ["-profile-directory=Development"],
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "IN Test",
+      "request": "launch",
+      "type": "pwa-node",
+      "console": "externalTerminal",
+      "runtimeExecutable": "start edge -profile-directory=\"Default\"",
+    }
+  ]
+}

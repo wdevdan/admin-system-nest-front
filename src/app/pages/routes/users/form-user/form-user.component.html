@@ -1,0 +1,168 @@
+<nb-accordion multi>
+  <nb-accordion-item *ngIf="true" #userForm>
+    <nb-accordion-item-header> {{ data.username + ' - edit' || 'New User' | ngxCapitalize }} </nb-accordion-item-header>
+    <nb-accordion-item-body>
+
+      <nb-layout style="text-align: center; display: flex;">
+
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Username</nb-card-header>
+
+            <nb-card-body>
+              <nb-form-field style="display: flex;">
+
+                <button nbSuffix nbButton class="primary">
+                  <nb-icon pack="eva" icon="at-outline"></nb-icon>
+                </button>
+
+                <input [value]="data.username" [(ngModel)]="data.username" type="text" nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Visible, max 20 chars">
+                <!-- shape="round, semi-round" status="warning, danger" -->
+
+              </nb-form-field>
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+
+        <nb-layout-column class="colored-column-info">
+          <nb-card>
+            <nb-card-header>Login</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.login" [(ngModel)]="data.login" type="text" nbInput fullWidth status="basic" shape="rectangle" fieldSize="medium" placeholder="Hidden, max 20 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+
+        <nb-layout-column left class="colored-column-success">
+          <nb-card>
+            <nb-card-header>Password</nb-card-header>
+
+            <nb-card-body>
+              <nb-form-field style="display: flex;">
+                <input [(ngModel)]="data.password" [type]="showPassword ? 'text' : 'password'" nbInput>
+
+                <button nbSuffix nbButton ghost (click)="toggleShowPassword()">
+                  <nb-icon pack="eva"
+                    [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                    [attr.aria-label]="showPassword ? 'hide' : 'show' + 'password'">
+                  </nb-icon>
+                </button>
+
+              </nb-form-field>
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+
+      </nb-layout>
+
+
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+
+  <nb-accordion-item *ngIf="data.userData" #userDataForm>
+    <nb-accordion-item-header>  User Data - {{ data.userData.uid ? 'edit' : 'create' }} </nb-accordion-item-header>
+
+    <nb-accordion-item-body>
+
+      <nb-layout style="text-align: center; display: flex;">
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Name</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.userData.name" [(ngModel)]="data.userData.name" type="text" fullWidth nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Visible, max 50 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Nick or Alias</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.userData.alias" [(ngModel)]="data.userData.alias" type="text" fullWidth nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Visible, max 20 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+      </nb-layout>
+
+      <nb-layout style="text-align: center; display: flex;">
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Middle Name</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.userData.middleName" [(ngModel)]="data.userData.middleName" type="text" fullWidth nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Visible, max 50 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Last Name</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.userData.lastName" [(ngModel)]="data.userData.lastName" type="text" fullWidth nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Visible, max 50 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+      </nb-layout>
+
+      <nb-layout style="text-align: center; display: flex;">
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>About</nb-card-header>
+
+            <nb-card-body>
+              <textarea [value]="data.userData.about" [(ngModel)]="data.userData.about" nbInput fullWidth placeholder="Visible, max 250 chars" shape="rectangle"></textarea>
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+      </nb-layout>
+
+      <nb-layout style="text-align: center; display: flex;">
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Email Address</nb-card-header>
+
+            <nb-card-body>
+              <input [value]="data.userData.email" [(ngModel)]="data.userData.email" type="email" fullWidth nbInput status="basic" shape="rectangle" fieldSize="medium" placeholder="Hidden, max 150 chars">
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+        <nb-layout-column class="colored-column-warning">
+          <nb-card>
+            <nb-card-header>Document</nb-card-header>
+
+            <nb-card-body>
+              <nb-form-field style="display: flex;">
+                <input [value]="data.userData.document" [(ngModel)]="data.userData.document" [type]="showDocument ? 'text' : 'password'" nbInput>
+
+                <button nbSuffix nbButton ghost (click)="toggleShowDocument()">
+                  <nb-icon pack="eva"
+                    [icon]="showDocument ? 'eye-outline' : 'eye-off-2-outline'"
+                    [attr.aria-label]="showDocument ? 'hide' : 'show' + 'document'">
+                  </nb-icon>
+                </button>
+
+              </nb-form-field>
+            </nb-card-body>
+
+          </nb-card>
+        </nb-layout-column>
+      </nb-layout>
+
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+
+</nb-accordion>
+
+<button nbSuffix nbButton (click)="log()"><nb-icon pack="eva" icon="corner-down-left-outline"></nb-icon></button>
