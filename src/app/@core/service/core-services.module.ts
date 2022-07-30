@@ -24,7 +24,6 @@ import { ProfitBarAnimationChartService } from './profit-bar-animation-chart.ser
 
 import { SmartItemService } from './routes/smart-item.service';
 import { SmartUserService } from './routes/smart-user.service';
-import { UserRelService } from './routes/user-rel.service';
 import { HttpService } from './base/http.service';
 import { UserService } from './users.service';
 
@@ -53,7 +52,6 @@ const SERVICES = [
 
   SmartItemService,
   SmartUserService,
-  UserRelService,
   HttpService,
   UserService,
 ];

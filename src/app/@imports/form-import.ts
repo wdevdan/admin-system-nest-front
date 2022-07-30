@@ -1,8 +1,6 @@
 import { NbActionsModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule, NbTreeGridModule, NbUserModule } from '@nebular/theme';
-import { FormsModule } from '@angular/forms';
-
-import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
+import { FormsModule } from '@angular/forms';
 
 export const formImport = [
   FormsModule,
@@ -17,5 +15,4 @@ export const formImport = [
   NbActionsModule,
   NbCheckboxModule,
   NbDatepickerModule,
-  FormsRoutingModule,
 ];
